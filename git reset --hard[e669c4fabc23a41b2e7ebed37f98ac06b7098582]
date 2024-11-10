@@ -1,0 +1,11 @@
+[33mcommit 18c9ebc9a19e48bbfc7d61267f1ee2c2f68bf93d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Sun Nov 10 09:51:38 2024 -0500
+
+    Creación de la estructura de las clases en model
+
+[33mcommit e669c4fabc23a41b2e7ebed37f98ac06b7098582[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Wed Nov 6 17:44:00 2024 -0500
+
+    Inicio de la estructura y del paquete model
