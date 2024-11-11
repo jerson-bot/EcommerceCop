@@ -1,10 +1,13 @@
 package com.ecommercecop.controller;
 
+import java.util.Optional;
+
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -38,6 +41,21 @@ public class ProductoControlador {
 		
 		Usuarios u= new Usuarios(1, "", "", "", "", "", "", "") ;
 		productos.setUsuarios(u);
+		return "redirect:/productos";
+	}
+	
+	@GetMapping("/editar/{Id}")
+	public String editar(@PathVariable Integer Id,Model model) {
+		Producto productos = new Producto();
+		Optional<Producto> optionalProducto = productoServicio.get(Id) ;
+		productos = optionalProducto.get();
+		LOGGER.info("Producto buscado: {}", productos);
+		model.addAttribute("producto", productos);
+		return "productos/editar";
+	}
+	@PostMapping("/actualizar")
+	public String actualizar(Producto producto) {
+		productoServicio.actualizar(producto);
 		return "redirect:/productos";
 	}
 	
