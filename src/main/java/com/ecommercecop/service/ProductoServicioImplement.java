@@ -1,5 +1,6 @@
 package com.ecommercecop.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,12 @@ public class ProductoServicioImplement implements ProductoServicio{
 	@Override
 	public void borrar(Integer Id) {
 		productoRepositorio.deleteById(Id);
+	}
+
+	@Override
+	public List<Producto> findAll() {
+		// TODO Auto-generated method stub
+		return productoRepositorio.findAll();
 	}
 	
 	
