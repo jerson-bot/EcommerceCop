@@ -59,5 +59,10 @@ public class ProductoControlador {
 		return "redirect:/productos";
 	}
 	
+	@GetMapping("/borrar/{Id}")
+	public String borrar(@PathVariable Integer Id) {
+		productoServicio.borrar(Id);
+		return "redirect:/productos";
+	}
 	
 }

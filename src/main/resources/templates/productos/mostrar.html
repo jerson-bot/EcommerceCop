@@ -54,7 +54,7 @@
 		<td th:text="${obtenProducto.Cantidad}" ></td>
 		<td th:text="${obtenProducto.Precio}" ></td>
         <td><a  class="btn btn-warning" th:href="@{/productos/editar/{Id}(Id = ${obtenProducto.Id})}">Editar</a> </td>
-        <td><a  class="btn btn-danger" href="">Eliminar</a> </td>
+        <td><a  class="btn btn-danger" th:href="@{/productos/borrar/{Id}(Id = ${obtenProducto.Id})}">Eliminar</a> </td>
       </tr>       
     </tbody>
   </table>
