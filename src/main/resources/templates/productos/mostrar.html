@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Spring eCommerce</title>
+  <title>eCommerce COP</title>
 
   <!-- Bootstrap/css-->
   <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
@@ -23,13 +23,10 @@
   <!-- Navegacion/header -->
   <div th:include="administrador/PlantillaAdmin.html::header"></div>
 
-<!-- Page Content -->
+<!-- contenido de pagina-->
 <div class="container">
-
-
-  <!-- Page Heading/Breadcrumbs -->
   <h1 class="mt-4 mb-3">
-    Spring eCommerce <small>Productos</small>
+    eCommerce COP <small>Productos</small>
   </h1>
 
   <ol class="breadcrumb">
@@ -37,7 +34,7 @@
     <li class="breadcrumb-item active">Ver Productos</li>
   </ol>
 
-  <a class="btn btn-primary" href="#" > Crear Producto</a>
+  <a class="btn btn-primary" th:href="@{/productos/crear}" > Crear Producto</a>
   <h2>Productos</h2>
   <table class="table">
     <thead>
@@ -63,7 +60,7 @@
   </table>
 
 </div>
-<!-- /.container -->
+<!-- /.contenedor-->
 <!-- Pie de pagina/Footer -->
 <div th:include ="administrador/PlantillaAdmin.html::footer"></div>
   <!-- /.contenedor -->
