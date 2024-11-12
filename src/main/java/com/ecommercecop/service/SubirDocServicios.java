@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class SubirDocServicios {
-	private String CarpetaImg ="Images//";
+	private String CarpetaImg ="Imagenes//";
 	
 	public String guardarImagenes(MultipartFile archivo) throws IOException {
 		if (!archivo.isEmpty()) {
@@ -24,7 +24,7 @@ public class SubirDocServicios {
 	}
 	
 	public void borrarImagen(String nombre) {
-		String rutaImagen = "Images//";
+		String rutaImagen = "Imagenes//";
 		File archivo = new File(rutaImagen+nombre);
 		archivo.delete();
 	}
