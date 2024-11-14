@@ -51,17 +51,8 @@ public class ProductoControlador {
 		if (productos.getId() == null) { 
 			String nombreImagen = subir.guardarImagenes(archivo);
 			productos.setImgProducto(nombreImagen);
-		}else { //para editar producto sin cambiar imagen
-				if (!archivo.isEmpty()) {
-					Producto p  = new Producto();
-					p = productoServicio.get(productos.getId()).get();
-					productos.setImgProducto(p.getImgProducto());
-				}else {
-					String nombreImagen = subir.guardarImagenes(archivo);
-					productos.setImgProducto(nombreImagen);
-				}
-		}
-		
+		}else { 
+		}		
 		productoServicio.guardar(productos);
 		return "redirect:/productos";
 	}
@@ -76,13 +67,38 @@ public class ProductoControlador {
 		return "productos/editar";
 	}
 	@PostMapping("/actualizar")
-	public String actualizar(Producto producto) {
-		productoServicio.actualizar(producto);
+	public String actualizar(Producto productos, @RequestParam("img") MultipartFile archivo) throws IOException {
+		
+		
+		//para editar producto sin cambiar imagen
+		Producto p  = new Producto();
+		p = productoServicio.get(productos.getId()).get();
+		
+		if (!archivo.isEmpty()) {
+			productos.setImgProducto(p.getImgProducto());
+		}else { // en el caso de editar imagen
+			
+			if (!p.getImgProducto().equals("default.jpg")) {
+				subir.borrarImagen(p.getImgProducto());
+			}
+			String nombreImagen = subir.guardarImagenes(archivo);
+			productos.setImgProducto(nombreImagen);
+		}
+		productos.setUsuarios(p.getUsuarios());
+		productoServicio.actualizar(productos);	
 		return "redirect:/productos";
 	}
 	
 	@GetMapping("/borrar/{Id}")
 	public String borrar(@PathVariable Integer Id) {
+		Producto p = new Producto();
+		p = productoServicio.get(Id).get();
+		
+		//es para eliminar la imagen(no la por defecto)
+		if (!p.getImgProducto().equals("default.jpg")) {
+			subir.borrarImagen(p.getImgProducto());
+		}
+		
 		productoServicio.borrar(Id);
 		return "redirect:/productos";
 	}
