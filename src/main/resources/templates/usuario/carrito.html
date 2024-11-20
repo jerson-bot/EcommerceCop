@@ -29,7 +29,7 @@
     <div class="container">
 
 
-      <!-- Page Heading/Breadcrumbs -->
+      <!-- cabecera -->
       <h1 class="mt-4 mb-3">
          eCommerce COP <small>Carrito</small>
       </h1>
@@ -39,7 +39,7 @@
         <li class="breadcrumb-item active">Carrito</li>
       </ol>
 
-      <!-- Blog Post -->
+      <!-- tabla -->
       <div class="card mb-4">
         <div class="card-body">
           <div class="row">
@@ -55,12 +55,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td >Nombre</td>
-                  <td >Precio</td>
-                  <td>Cantidad</td>
-                  <td >Total</td>
-                  <td><a href="#" class="btn btn-danger">Quitar</a></td>
+                <tr th:each="ListaOrden:${carrito}">
+                  <td th:text="${ListaOrden.Nombre}" >Nombre</td>
+                  <td th:text="${ListaOrden.Precio}">Precio</td>
+                  <td th:text="${ListaOrden.Cantidad}">Cantidad</td>
+                  <td th:text="${ListaOrden.Total}">Total</td>
+                  <td><a th:href="@{/borrar/carrito/{Id} (Id = ${ListaOrden.Productos.Id})}" class="btn btn-danger" >Quitar</a></td>
                 </tr>
               </tbody>
             </table>
@@ -70,7 +70,7 @@
             <h2 class="card-title">SUBTOTAL</h2>
 
             <ul class="list-group">
-              <li class="list-group-item"><h5>Total: $ 10</h5></li>
+              <li class="list-group-item"><h5 th:text="${orden.Total}"></h5></li>
               <a href="resumenorden.html" class="btn btn-dark">Ver Orden</a>
             </ul>
           </div>
