@@ -90,6 +90,12 @@ public class HomeControlador {
 		return "/usuario/carrito";
 	}
 	
+	@GetMapping("/orden")
+	public String Orden() {
+		
+		return "usuario/verOrden";
+	}
+	
 	@GetMapping("/borrar/carrito/{Id}")
 	public String BorrarProductoCarrito(@PathVariable Integer Id, Model modelo) {
 		
