@@ -18,13 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ecommercecop.model.DetallesOrden;
 import com.ecommercecop.model.Orden;
 import com.ecommercecop.model.Producto;
+import com.ecommercecop.model.Usuarios;
 import com.ecommercecop.service.ProductoServicio;
+import com.ecommercecop.service.UsuarioServicio;
 
 @Controller
 @RequestMapping("/")
 public class HomeControlador {
 	
 	private final Logger log= LoggerFactory.getLogger(HomeControlador.class);
+	
+	@Autowired
+	private UsuarioServicio usuarioServicio;
 	
 	//Detalles del producto pedido
 	List<DetallesOrden> Detalles = new ArrayList<DetallesOrden>();
@@ -91,9 +96,14 @@ public class HomeControlador {
 	}
 	
 	@GetMapping("/orden")
-	public String Orden() {
+	public String Orden(Model modelo) {
 		
-		return "usuario/verOrden";
+		Usuarios usuario = usuarioServicio.findById(1).get();
+		
+		modelo.addAttribute("carrito", Detalles);
+		modelo.addAttribute("orden", orden);
+		modelo.addAttribute("usuario", usuario);
+		return "/usuario/verOrden";
 	}
 	
 	@GetMapping("/borrar/carrito/{Id}")
