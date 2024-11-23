@@ -48,6 +48,8 @@ public class OrdenServicioImplement implements OrdenServicio {
 			concatenacionNumero = "0000000"+String.valueOf(Numero);
 		}else if (Numero<10000) {
 			concatenacionNumero = "000000"+String.valueOf(Numero);
+		}else {
+			concatenacionNumero = "0";
 		}
 		
 		

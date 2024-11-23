@@ -1,6 +1,7 @@
 package com.ecommercecop.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,8 @@ import com.ecommercecop.model.DetallesOrden;
 import com.ecommercecop.model.Orden;
 import com.ecommercecop.model.Producto;
 import com.ecommercecop.model.Usuarios;
+import com.ecommercecop.service.DetallesOrdenServicio;
+import com.ecommercecop.service.OrdenServicio;
 import com.ecommercecop.service.ProductoServicio;
 import com.ecommercecop.service.UsuarioServicio;
 
@@ -30,6 +33,12 @@ public class HomeControlador {
 	
 	@Autowired
 	private UsuarioServicio usuarioServicio;
+	
+	@Autowired
+	private OrdenServicio ordenServicio;
+	
+	@Autowired
+	private DetallesOrdenServicio detallesOrdenServicio;
 	
 	//Detalles del producto pedido
 	List<DetallesOrden> Detalles = new ArrayList<DetallesOrden>();
@@ -105,6 +114,33 @@ public class HomeControlador {
 		modelo.addAttribute("usuario", usuario);
 		return "/usuario/verOrden";
 	}
+	
+	//Es para guardar la orden
+	@GetMapping("/guardarOrden")
+		public String guardarOrden() {
+		Date fechaOrdenCreada = new Date();
+		orden.setFechaCreacion(fechaOrdenCreada);
+		orden.setNumero(ordenServicio.CreacionNumeroOrden());
+		//usuario que hace la compra
+		Usuarios usuario = usuarioServicio.findById(1).get();
+		orden.setUsuario(usuario);
+		ordenServicio.guardar(orden);
+		
+		//guardamos los detalles
+		
+		for (DetallesOrden dt:Detalles) {
+			dt.setOrden(orden);
+			detallesOrdenServicio.guardar(dt);
+		}
+		
+		//Quitamos lo agregado en la orden para el usuario
+		
+		orden = new Orden();
+		Detalles.clear();
+		
+		return "redirect:/";
+	}
+	
 	
 	@GetMapping("/borrar/carrito/{Id}")
 	public String BorrarProductoCarrito(@PathVariable Integer Id, Model modelo) {
