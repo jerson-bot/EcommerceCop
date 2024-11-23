@@ -17,6 +17,12 @@ public class UsuarioServicioImplement implements UsuarioServicio {
 	@Override
 	public Optional<Usuarios> findById(Integer Id) {
 		return usuarioRepositorio.findById(Id);
+	}
+
+	@Override
+	public Usuarios guardar(Usuarios usuario) {
+		// TODO Auto-generated method stub
+		return usuarioRepositorio.save(usuario);
 	}	
 	
 

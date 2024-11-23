@@ -6,4 +6,6 @@ import com.ecommercecop.model.Usuarios;
 
 public interface UsuarioServicio {
 	Optional<Usuarios> findById(Integer Id);
+	
+	Usuarios guardar(Usuarios usuario);
 }

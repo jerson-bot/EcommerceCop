@@ -133,6 +133,13 @@ public class Usuarios {
 		Productos = productos;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuarios [Id=" + Id + ", Nombre=" + Nombre + ", User=" + User + ", Email=" + Email + ", Direccion="
+				+ Direccion + ", Telefono=" + Telefono + ", Tipo=" + Tipo + ", Contra=" + Contra + ", Productos="
+				+ Productos + ", Ordenes=" + Ordenes + "]";
+	}
+
 
 
 	
