@@ -20,7 +20,7 @@ public class DetallesOrden {
 	private double Precio;
 	private double Total;
 	
-	@OneToOne
+	@ManyToOne
 	private Orden Orden;
 	
 	@ManyToOne

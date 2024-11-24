@@ -1,6 +1,7 @@
 package com.ecommercecop.controller;
 
 import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +27,8 @@ import com.ecommercecop.service.DetallesOrdenServicio;
 import com.ecommercecop.service.OrdenServicio;
 import com.ecommercecop.service.ProductoServicio;
 import com.ecommercecop.service.UsuarioServicio;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/")
@@ -53,7 +56,9 @@ public class HomeControlador {
 	
 	
 	@GetMapping("")
-	 public String home(Model modelo) {
+	 public String home(Model modelo, HttpSession session) {
+		
+		log.info("Sesion del usuario: {}", session.getAttribute("IdUsuario"));
 		modelo.addAttribute("productos", productoServicio.findAll());
 		 return "usuario/home";
 	 }
@@ -107,9 +112,9 @@ public class HomeControlador {
 	}
 	
 	@GetMapping("/orden")
-	public String Orden(Model modelo) {
-		
-		Usuarios usuario = usuarioServicio.findById(1).get();
+	public String Orden(Model modelo,HttpSession session) {
+
+		Usuarios usuario = usuarioServicio.findById( Integer.parseInt(session.getAttribute("IdUsuario").toString())).get();
 		
 		modelo.addAttribute("carrito", Detalles);
 		modelo.addAttribute("orden", orden);
@@ -119,12 +124,13 @@ public class HomeControlador {
 	
 	//Es para guardar la orden
 	@GetMapping("/guardarOrden")
-		public String guardarOrden() {
+		public String guardarOrden(HttpSession session) {
 		Date fechaOrdenCreada = new Date();
 		orden.setFechaCreacion(fechaOrdenCreada);
 		orden.setNumero(ordenServicio.CreacionNumeroOrden());
 		//usuario que hace la compra
-		Usuarios usuario = usuarioServicio.findById(1).get();
+		Usuarios usuario = usuarioServicio.findById(Integer.parseInt(session.getAttribute("IdUsuario").toString())).get();
+		
 		orden.setUsuario(usuario);
 		ordenServicio.guardar(orden);
 		
