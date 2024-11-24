@@ -2,11 +2,13 @@ package com.ecommercecop.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ecommercecop.model.Orden;
+import com.ecommercecop.model.Usuarios;
 import com.ecommercecop.repository.OrdenRepositorio;
 
 @Service
@@ -54,6 +56,17 @@ public class OrdenServicioImplement implements OrdenServicio {
 		
 		
 		return concatenacionNumero;
+	}
+
+	@Override
+	public List<Orden> findByUsuarios(Usuarios usuario) {
+		
+		return ordenRepositorio.findByUsuarios(usuario);
+	}
+
+	@Override
+	public Optional<Orden> findById(Integer Id) {
+		return ordenRepositorio.findById(Id);
 	}
 }
 

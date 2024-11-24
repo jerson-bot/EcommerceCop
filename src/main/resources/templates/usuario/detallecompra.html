@@ -21,26 +21,25 @@
 
 <body>
 
-	<!-- Navegacion -->
-	<div th:include="usuario/PlantillaUsuario.html::header" th:if="${sesion==null}">
-	</div>
-	<!-- vista para cuando el usuario no está logeado-->
-	<div th:include="usuario/PlantillaUsuario.html::header-usuario" th:unless="${sesion==null}">
-	</div>
-
-
+  <!-- Navegacion -->
+  <div th:include="usuario/PlantillaUsuario.html :: header" th:if="${sesion==null}">
+  </div>
+  <!-- vista para cuando el usuario no está logeado-->
+  <div th:include="usuario/PlantillaUsuario.html :: header-usuario" th:unless="${sesion==null}">
+  </div>
     <!-- contenido de pagina -->
     <div class="container">
 
 
-      <!--cabecera -->
+      <!-- cabecera -->
       <h1 class="mt-4 mb-3">
-        eCommerce COP <small>Compras</small>
+         eCommerce COP<small>Detalles</small>
       </h1>
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-        <li class="breadcrumb-item active">Compras</li>
+        <li class="breadcrumb-item"><a th:href="@{/usuario/compras}">Compras</a></li>
+        <li class="breadcrumb-item active">Detalle de Compra</li>
       </ol>
 
       <!-- Blog -->
@@ -51,18 +50,18 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">No. de Orden</th>
-                  <th scope="col">Fecha</th>
-                  <th scope="col">Valor</th>
-                  <th scope="col">Acción</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Producto</th>                  
+                  <th scope="col">Precio</th>
+                  <th scope="col">Total</th>                  
                 </tr>
               </thead>
               <tbody>
-                <tr th:each="orden: ${ordenes}">
-                  <td th:text="${orden.Numero}">4555454</td>
-                  <td th:text="${orden.FechaCreacion}">Fecha de Compra</td>
-                  <td th:text="${orden.Total}">Total</td>
-                  <td><a th:href="@{/usuario/detalleCompra/{Id} (Id=${orden.Id})}" class="btn btn-success">Ver Detalle</a></td>
+                <tr th:each="detalle:${detalles}">
+                  <td th:text="${detalle.Cantidad}"></td>
+                  <td th:text="${detalle.Nombre}"></td>
+                  <td th:text="${detalle.Precio}"></td>
+                  <td th:text="${detalle.Total}"></td>
                 </tr>
               </tbody>
             </table>
@@ -82,7 +81,7 @@
      <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
      <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script></script>
 
-
 </body>
 
 </html>
+

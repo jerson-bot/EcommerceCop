@@ -32,8 +32,8 @@ public class UsuarioServicioImplement implements UsuarioServicio {
 
 	@Override
 	public List<Usuarios> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return usuarioRepositorio.findAll();
 	}
 
 
