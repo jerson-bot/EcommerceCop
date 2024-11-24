@@ -17,7 +17,6 @@
   <!-- Estilos de la plantilla -->
   <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
 
-
 </head>
 
 <body>
@@ -25,18 +24,19 @@
 	<!-- Navegacion/header -->
 	<div th:include="administrador/PlantillaAdmin.html::header"></div>
 
-    <!-- contenido de pagina -->
+	<!-- contenido de pagina -->
     <div class="container">
 
 
       <!-- cabecera -->
       <h1 class="mt-4 mb-3">
-        eCommerce COP <small>Ordenes</small>
+        eCommerce COP <small>Detalles</small>
       </h1>
-
+	
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-        <li class="breadcrumb-item active">Ordenes</li>
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="compras.html">Compras</a></li>
+        <li class="breadcrumb-item active">Detalle de Compra</li>
       </ol>
 
       <!-- Blog Post -->
@@ -47,18 +47,18 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">No. de Orden</th>
-                  <th scope="col">Fecha</th>
-                  <th scope="col">Valor</th>
-                  <th scope="col">Acción</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Producto</th>                  
+                  <th scope="col">Precio</th>
+                  <th scope="col">Total</th>                  
                 </tr>
               </thead>
               <tbody>
-                <tr th:each="orden:${ordenes}">
-                  <td th:text="${orden.Numero}">4555454</td>
-                  <td th:text="${orden.FechaCreacion}">Fecha de Compra</td>
-                  <td th:text="${orden.Total}">Total</td>
-                  <td><a th:href="@{/administrador/detalles/{Id} (Id=${orden.Id})}" class="btn btn-success">Ver Detalle</a></td>
+                <tr th:each="detalles:${detalles}">
+                  <td th:text="${detalles.Cantidad}">Cantidad</td>
+                  <td th:text="${detalles.Nombre}">Producto</td>
+                  <td th:text="${detalles.Precio}">Precio</td>
+                  <td th:text="${detalles.Total}">Total</td>
                 </tr>
               </tbody>
             </table>
@@ -81,3 +81,4 @@
 </body>
 
 </html>
+
