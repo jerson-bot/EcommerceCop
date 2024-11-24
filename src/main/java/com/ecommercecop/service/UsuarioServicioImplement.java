@@ -1,5 +1,6 @@
 package com.ecommercecop.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +16,27 @@ public class UsuarioServicioImplement implements UsuarioServicio {
 	private UsuarioRepositorio usuarioRepositorio;
 
 	@Override
-	public Optional<Usuarios> findById(Integer Id) {
-		return usuarioRepositorio.findById(Id);
+	public Optional<Usuarios> findById(Integer id) {
+		return usuarioRepositorio.findById(id);
 	}
 
 	@Override
 	public Usuarios guardar(Usuarios usuario) {
-		// TODO Auto-generated method stub
 		return usuarioRepositorio.save(usuario);
-	}	
-	
+	}
+
+	@Override
+	public Optional<Usuarios> findByEmail(String Email) {
+		return usuarioRepositorio.findByEmail(Email);
+	}
+
+	@Override
+	public List<Usuarios> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 
 }

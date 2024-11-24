@@ -1,6 +1,8 @@
 package com.ecommercecop.model;
 
 import java.util.List;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
@@ -35,14 +37,14 @@ public class Usuarios {
 	public Usuarios(Integer id, String nombre, String user, String email, String direccion, String telefono,
 			String tipo, String contra) {
 		super();
-		Id = id;
-		Nombre = nombre;
-		User = user;
-		Email = email;
-		Direccion = direccion;
-		Telefono = telefono;
-		Tipo = tipo;
-		Contra = contra;
+		this.Id = id;
+		this.Nombre = nombre;
+		this.User = user;
+		this.Email = email;
+		this.Direccion = direccion;
+		this.Telefono = telefono;
+		this.Tipo = tipo;
+		this.Contra = contra;
 	}
 
 
@@ -52,7 +54,7 @@ public class Usuarios {
 
 
 	public void setId(Integer id) {
-		Id = id;
+		this.Id = id;
 	}
 
 
@@ -62,7 +64,7 @@ public class Usuarios {
 
 
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.Nombre = nombre;
 	}
 
 
@@ -72,7 +74,7 @@ public class Usuarios {
 
 
 	public void setUser(String user) {
-		User = user;
+		this.User = user;
 	}
 
 
@@ -82,7 +84,7 @@ public class Usuarios {
 
 
 	public void setEmail(String email) {
-		Email = email;
+		this.Email = email;
 	}
 
 
@@ -92,7 +94,7 @@ public class Usuarios {
 
 
 	public void setDireccion(String direccion) {
-		Direccion = direccion;
+		this.Direccion = direccion;
 	}
 
 
@@ -102,7 +104,7 @@ public class Usuarios {
 
 
 	public void setTelefono(String telefono) {
-		Telefono = telefono;
+		this.Telefono = telefono;
 	}
 
 
@@ -112,7 +114,7 @@ public class Usuarios {
 
 
 	public void setTipo(String tipo) {
-		Tipo = tipo;
+		this.Tipo = tipo;
 	}
 
 
@@ -122,7 +124,7 @@ public class Usuarios {
 
 
 	public void setContra(String contra) {
-		Contra = contra;
+		this.Contra = contra;
 	}
 
 	public List<Producto> getProductos() {
