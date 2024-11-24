@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,8 @@ import com.ecommercecop.model.Usuarios;
 import com.ecommercecop.service.UsuarioServicio;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 @RequestMapping("/usuario")
@@ -55,11 +58,14 @@ public class UsuarioControlador {
 			}
 		}else {
 				logger.info("Usuario no existe");
-			}
-				
-		
+			}		
 		return "redirect:/";
 	}
-
+	
+	@GetMapping("/compras")
+	public String compras(Model modelo,HttpSession session) {
+		modelo.addAttribute("sesion", session.getAttribute("IdUsuario"));
+		return "usuario/compras";
+	}
 	
 }
