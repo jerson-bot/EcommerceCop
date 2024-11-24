@@ -22,9 +22,11 @@
 <body>
 
   <!-- Navegacion -->
-  <div th:include="usuario/PlantillaUsuario.html::header">
-	
+  <div th:include="usuario/PlantillaUsuario.html::header" th:if="${sesion==null}">
   </div>
+  <!-- vista para cuando el usuario no está logeado-->
+  <div th:include="usuario/PlantillaUsuario.html::header-usuario" th:unless="${sesion==null}">
+	</div>
 
     <!-- Contenido de pagina -->
     <div class="container">
