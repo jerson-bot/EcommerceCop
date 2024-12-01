@@ -25,7 +25,6 @@ public class UsuarioServicioImplement implements UsuarioServicio {
 		return usuarioRepositorio.save(usuario);
 	}
 
-	@Override
 	public Optional<Usuarios> findByEmail(String Email) {
 		return usuarioRepositorio.findByEmail(Email);
 	}

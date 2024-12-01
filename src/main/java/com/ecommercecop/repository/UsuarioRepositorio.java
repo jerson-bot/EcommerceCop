@@ -14,7 +14,7 @@ import com.ecommercecop.model.Usuarios;
 
 @Repository
 public interface UsuarioRepositorio extends JpaRepository<Usuarios, Integer>{
-	@Query(value = "SELECT * FROM Usuarios where email = :Email", nativeQuery = true)
+	@Query(value = "SELECT * FROM Usuarios where Email = :Email", nativeQuery = true)
 	Optional<Usuarios> findByEmail(@Param("Email") String Email);
 }
 

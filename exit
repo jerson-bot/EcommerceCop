@@ -1,0 +1,155 @@
+[33mcommit 63b7f8e59504db4202583b737a30a3e57dac1a50[m[33m ([m[1;36mHEAD -> [m[1;32msec[m[33m, [m[1;32mmain_2[m[33m)[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Sun Nov 24 14:13:58 2024 -0500
+
+    funcionalidad de los detalles para vista administrador
+
+[33mcommit dace2e44ba4e9a53ef07262aaa00312590d9a624[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Sun Nov 24 13:54:36 2024 -0500
+
+    funcion para ver ordenes desde la vista admin implementados
+
+[33mcommit d606d29d6975c6f000a868b95325dc79d21ffabe[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Sun Nov 24 13:36:54 2024 -0500
+
+    se agregó la función cerrar sesion, y se agregaron funcionalidades para ver los usuarios, se arregló problema con la vista sin loguear, se terminó de implementar la vista ordenes
+
+[33mcommit 2afd3189a183fc18400c1392263e215d057d6c1f[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Sun Nov 24 10:56:27 2024 -0500
+
+    vista compras añadida
+
+[33mcommit 236ffde5da2f4e3a8f46fd746372fa3b69cdb5cf[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Sun Nov 24 10:42:10 2024 -0500
+
+    gestion de vistas(plantillas) distintas en funcion del usuario
+
+[33mcommit 324d1d2fba72c0910bd063e705962bed2b99a1fc[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Sun Nov 24 09:49:01 2024 -0500
+
+    funcion de base de datos para mostrar y guardar(tambien crear la orden) informacion usando la session del usuario
+
+[33mcommit 9423b9fab15e73632ef62aee24fad5d9c22a47a8[m[33m ([m[1;31morigin/main_2[m[33m)[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Sat Nov 23 21:07:47 2024 -0500
+
+    Se ha realizado el ajuste del usuario al obtener un correo
+
+[33mcommit 3755679090add94439b3e05736a29f3bfb44f7ea[m[33m ([m[1;32mmain[m[33m)[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Fri Nov 22 22:57:09 2024 -0500
+
+    funcionalidad de registro de usuario incluida
+
+[33mcommit 6a01186bfc096454ea5338d96bd4ccd34e9d552e[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Fri Nov 22 21:26:24 2024 -0500
+
+    filtrado de informacion de productos agregado
+
+[33mcommit 04cb21db2499f4954a57cdb1a93d5cd541be79f9[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Fri Nov 22 20:56:04 2024 -0500
+
+    se implementó la generacion de la informacion de la orden en la base de datos
+
+[33mcommit 6a9a99809a9e3aea7f8d2ccb2ade13a293baec85[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Fri Nov 22 20:35:34 2024 -0500
+
+    funcion de número de orden agregada
+
+[33mcommit f410383a268b446faa69841a74df88cf2ebada60[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Fri Nov 22 20:13:02 2024 -0500
+
+    se crearon repositorios y servicios para las ordenes y los detalles
+
+[33mcommit a1dcda6e87cdd7dd95f7752726c35072dd0b9d57[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Wed Nov 20 15:33:05 2024 -0500
+
+    creación de vista para ver la orden del carrito, verOrden
+
+[33mcommit 1300a0f017fb68ec0fe10247cfdbfa7838a32129[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Wed Nov 20 15:23:20 2024 -0500
+
+    Se agregó la funcion de eliminar productos del carrito y se agregó el enlace de carrito
+
+[33mcommit bb1cb239f45507228ba2f253cb13d1417de32479[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Wed Nov 20 12:55:39 2024 -0500
+
+    vista de datos del producto y vista carrito de compras
+
+[33mcommit f93ae9ae9774285daafed50fd38a3619a9f99009[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Tue Nov 19 15:04:36 2024 -0500
+
+    Vista home inicial de los usuarios, inicio del controlador
+
+[33mcommit d1967a4c4a8197164caadee4bc0fd48ea50d808f[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Thu Nov 14 00:34:12 2024 -0500
+
+    se agregó la función de edicion y carga de imagenes para la vista administrador
+
+[33mcommit ebdbcadcc1befe08582ef55d7863989c98570318[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Mon Nov 11 19:25:11 2024 -0500
+
+    funcion para guardar imagenes de productos
+
+[33mcommit fddbceff092fff8d69d93e50193acef9a008aac3[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Mon Nov 11 18:49:47 2024 -0500
+
+    se agrego el servicio para agregar imagenes al servidor
+
+[33mcommit 785c758e1e543b84af6c64da3bc22ffc6794ce00[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Mon Nov 11 18:22:55 2024 -0500
+
+    se agrego la funcion para eliminar productos en la vista
+
+[33mcommit 91be8f866123aef47fcc59ba06db2e2416707a53[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Mon Nov 11 18:18:28 2024 -0500
+
+    se agrego la funcionalidad para actualizar productos
+
+[33mcommit e2cf7050c9e2de550ad9c272a33325273672c593[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Mon Nov 11 16:17:20 2024 -0500
+
+    funcion de mostrar productos al admin
+
+[33mcommit 2bd1b657b3e24f9004bae95ca305fc0e18c44310[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Mon Nov 11 15:39:38 2024 -0500
+
+    creacion de la funcion de guardado en los productos, con su respectiva vista y sus controladores en productocontrolador
+
+[33mcommit b5ec53163ad7a7c1f2745b73d4cc856bd8354f87[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Sun Nov 10 19:18:56 2024 -0500
+
+    creacion de el modelo,clase,repositorio y metodo show/Mostrar del ProductoControlador
+
+[33mcommit 7fd815807e8488e2cd21d7f6d3d88447e200879d[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Sun Nov 10 17:55:56 2024 -0500
+
+    creacion del modelo, de vista y diseño de admin, mapeo con JPA a tablas.
+
+[33mcommit e669c4fabc23a41b2e7ebed37f98ac06b7098582[m
+Author: jersonfacundo07 <jersonfacundo07@gmail.com>
+Date:   Wed Nov 6 17:44:00 2024 -0500
+
+    Inicio de la estructura y del paquete model
