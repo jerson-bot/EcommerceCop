@@ -2,11 +2,13 @@ package com.ecommercecop.controller;
 
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +36,8 @@ public class UsuarioControlador {
 	@Autowired
 	private OrdenServicio ordenServicio;
 	
+	//BCryptPasswordEncoder passEncode = new BCryptPasswordEncoder();
+	
 	@GetMapping("/registro")
 	public String Crear() {
 		return "usuario/registro";
@@ -43,6 +47,9 @@ public class UsuarioControlador {
 	public String guardarUsuario(Usuarios usuario) {
 		logger.info("Usuario registro: {}",usuario);
 		usuario.setTipo("USUARIO");
+		usuario.setContra(usuario.getContra());
+
+		//usuario.setContra(passEncode.encode(usuario.getContra()));
 		usuarioServicio.guardar(usuario);
 		return "redirect:/";
 	}
@@ -58,13 +65,15 @@ public class UsuarioControlador {
 		Optional<Usuarios> user = usuarioServicio.findByEmail(usuario.getEmail());
 		if(user.isPresent()) {
 			session.setAttribute("IdUsuario", user.get().getId());
-			if(user.get().getTipo().equals("ADMIN")) {
+	        logger.info("ID del usuario guardado en sesión: {}", session.getAttribute("IdUsuario"));
+			String tipoUsuario = user.get().getTipo();
+	        if(tipoUsuario.equals("ADMIN")) {
 				return "redirect:/administrador";
 			}else {
 				return "redirect:/";
 			}
 		}else {
-				logger.info("Usuario no existe");
+				logger.info("Usuario no encontrado {}",usuario.getEmail());
 			}		
 		return "redirect:/";
 	}
